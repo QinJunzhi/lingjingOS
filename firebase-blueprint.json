@@ -1,0 +1,26 @@
+{
+  "entities": {
+    "AnalysisRecord": {
+      "title": "AnalysisRecord",
+      "description": "A record of a learning analysis session.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "User ID of the record owner." },
+        "subject": { "type": "string", "description": "Subject of the analysis." },
+        "predictedScore": { "type": "number", "description": "Predicted score." },
+        "weakPoints": { "type": "array", "items": { "type": "string" }, "description": "List of weak points." },
+        "lineage": { "type": "string", "description": "Knowledge lineage." },
+        "summary": { "type": "string", "description": "Analysis summary." },
+        "recommendedTasks": { "type": "array", "items": { "type": "string" }, "description": "Recommended tasks." },
+        "timestamp": { "type": "string", "format": "date-time", "description": "Creation timestamp." }
+      },
+      "required": ["uid", "subject", "predictedScore", "weakPoints", "lineage", "summary", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/analysis_records/{recordId}": {
+      "schema": "AnalysisRecord",
+      "description": "Collection of analysis records."
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "Ling Jing OS",
+  "description": "A multi-modal AI platform featuring Office Agent, Edu Tutor, and the Cai Bao Terminal.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

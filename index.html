@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>灵境 | Ling Jing</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              // Global System Colors
+              bg: {
+                DEFAULT: "var(--bg-body)",
+                card: "var(--bg-card)",
+              },
+              text: {
+                main: "var(--text-main)",
+                muted: "var(--text-muted)",
+              },
+              // Cyberpunk Theme (Cai Bao)
+              cb: {
+                bg: "var(--cb-bg-body)",
+                chat: "var(--cb-bg-chat)",
+                input: "var(--cb-bg-input)",
+                text: "var(--cb-text-primary)",
+                sub: "var(--cb-text-secondary)",
+                accent: "var(--cb-accent-color)",
+                accentBg: "var(--cb-accent-bg-text)",
+                border: "var(--cb-border-color)",
+              },
+              // Office Theme
+              office: {
+                bg: "var(--office-bg)",
+                card: "var(--office-card)",
+                text: "var(--office-text)",
+                sub: "var(--office-sub)",
+                primary: "var(--office-primary)",
+                accent: "var(--office-accent)",
+                border: "var(--office-border)"
+              },
+              // Edu Theme
+              edu: {
+                bg: "var(--edu-bg)",
+                card: "var(--edu-card)",
+                text: "var(--edu-text)",
+                sub: "var(--edu-sub)",
+                primary: "var(--edu-primary)",
+                accent: "var(--edu-accent)",
+                secondary: "var(--edu-secondary)",
+                border: "var(--edu-border)"
+              },
+              // Knowledge Graph Theme
+              kg: {
+                bg: "var(--kg-bg)",
+                card: "var(--kg-card)",
+                text: "var(--kg-text)",
+                primary: "var(--kg-primary)",
+                secondary: "var(--kg-secondary)",
+                node: "var(--kg-node)",
+                line: "var(--kg-line)"
+              }
+            },
+            fontFamily: {
+              sans: ["Inter", "Noto Sans SC", "sans-serif"],
+              mono: ["Fira Code", "monospace"],
+              pixel: ['"Press Start 2P"', 'cursive'],
+            },
+            boxShadow: {
+              neon: "var(--cb-neon-glow)",
+              soft: "0 4px 20px rgba(0, 0, 0, 0.05)",
+              card: "0 2px 8px rgba(0, 0, 0, 0.04)"
+            },
+            animation: {
+              'spin-slow': 'spin 10s linear infinite',
+            }
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer base {
+        :root {
+          /* --- Global Light (Default) --- */
+          --bg-body: #f3f4f6;
+          --bg-card: #ffffff;
+          --text-main: #1f2937;
+          --text-muted: #6b7280;
+
+          /* --- Cai Bao Light --- */
+          --cb-bg-body: #ffffff;
+          --cb-bg-chat: #f3f4f6;
+          --cb-bg-input: #f3f4f6;
+          --cb-text-primary: #111827;
+          --cb-text-secondary: #4b5563;
+          --cb-accent-color: #0969da;
+          --cb-accent-bg-text: #ffffff;
+          --cb-border-color: #d1d5db;
+          --cb-neon-glow: 0 2px 8px rgba(9, 105, 218, 0.2);
+          --cb-grid-line: rgba(209, 213, 219, 0.6);
+
+          /* --- Office Light --- */
+          --office-bg: #f8f9fa;
+          --office-card: #ffffff;
+          --office-text: #1a1a1a;
+          --office-sub: #666666;
+          --office-primary: #0066cc;
+          --office-accent: #e6f0ff;
+          --office-border: #e5e7eb;
+
+          /* --- Edu Light --- */
+          --edu-bg: #fffbf0;
+          --edu-card: #ffffff;
+          --edu-text: #2c1810;
+          --edu-sub: #8c7b75;
+          --edu-primary: #ff8c42;
+          --edu-accent: #ffe4d1;
+          --edu-secondary: #4caf50;
+          --edu-border: #f3e8d6;
+          
+          /* --- Knowledge Graph Light --- */
+          --kg-bg: #f0fdfa; /* Teal 50 */
+          --kg-card: #ffffff;
+          --kg-text: #134e4a; /* Teal 900 */
+          --kg-primary: #0d9488; /* Teal 600 */
+          --kg-secondary: #f43f5e; /* Rose 500 */
+          --kg-node: #ccfbf1; /* Teal 100 */
+          --kg-line: #99f6e4; /* Teal 200 */
+        }
+
+        .dark {
+          /* --- Global Dark --- */
+          --bg-body: #111827; 
+          --bg-card: #1f2937;
+          --text-main: #f9fafb;
+          --text-muted: #9ca3af;
+
+          /* --- Cai Bao Dark --- */
+          --cb-bg-body: #0d1117;
+          --cb-bg-chat: #161b22;
+          --cb-bg-input: #21262d;
+          --cb-text-primary: #e6edf3;
+          --cb-text-secondary: #8b949e;
+          --cb-accent-color: #58a6ff;
+          --cb-accent-bg-text: #0d1117;
+          --cb-border-color: #30363d;
+          --cb-neon-glow: 0 0 15px rgba(88, 166, 255, 0.4);
+          --cb-grid-line: rgba(48, 54, 61, 0.2);
+
+          /* --- Office Dark --- */
+          --office-bg: #0f172a;
+          --office-card: #1e293b;
+          --office-text: #e2e8f0;
+          --office-sub: #94a3b8;
+          --office-primary: #60a5fa;
+          --office-accent: #1e3a8a;
+          --office-border: #334155;
+
+          /* --- Edu Dark --- */
+          --edu-bg: #1c1917;
+          --edu-card: #292524;
+          --edu-text: #e7e5e4;
+          --edu-sub: #a8a29e;
+          --edu-primary: #fb923c;
+          --edu-accent: #431407;
+          --edu-secondary: #22c55e;
+          --edu-border: #44403c;
+          
+          /* --- Knowledge Graph Dark --- */
+          --kg-bg: #042f2e; /* Teal 950 */
+          --kg-card: #115e59; /* Teal 800 */
+          --kg-text: #ccfbf1;
+          --kg-primary: #2dd4bf; /* Teal 400 */
+          --kg-secondary: #fb7185; /* Rose 400 */
+          --kg-node: #134e4a;
+          --kg-line: #2d3748;
+        }
+
+        body {
+          @apply bg-bg transition-colors duration-300 font-sans;
+          overflow-x: hidden;
+          overflow-y: auto;
+        }
+
+        /* Scrollbar - Cai Bao Style applied globally */
+        /* Enhanced with glow effect for that cyberpunk feel */
+        * {
+          scrollbar-width: thin;
+          scrollbar-color: var(--cb-border-color) transparent;
+        }
+
+        ::-webkit-scrollbar {
+          width: 6px;
+          height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+          background-color: var(--cb-border-color);
+          border-radius: 3px;
+          transition: all 0.3s ease;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+          background-color: var(--cb-accent-color);
+          box-shadow: 0 0 8px var(--cb-accent-color); /* Neon glow */
+        }
+
+        .typing-cursor::after {
+          content: "█";
+          animation: blink 1s step-end infinite;
+          @apply text-current ml-1 font-mono;
+        }
+        
+        /* Pixel Art Utilities */
+        .image-pixelated {
+          image-rendering: pixelated;
+        }
+
+        @keyframes blink {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0; }
+        }
+
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(30px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Grid for Cai Bao */
+        @keyframes gridMove {
+          0% { background-position: 0 0; }
+          100% { background-position: 0 40px; }
+        }
+        .grid-bg {
+          background-image: linear-gradient(var(--cb-grid-line) 1px, transparent 1px),
+            linear-gradient(90deg, var(--cb-grid-line) 1px, transparent 1px);
+          background-size: 40px 40px;
+          animation: gridMove 20s linear infinite;
+        }
+
+        /* Markdown Styling */
+        .markdown-body h1 { @apply text-2xl font-bold mb-4 mt-6; }
+        .markdown-body h2 { @apply text-xl font-bold mb-3 mt-5; }
+        .markdown-body h3 { @apply text-lg font-bold mb-2 mt-4; }
+        .markdown-body p { @apply mb-4 leading-relaxed; }
+        .markdown-body ul { @apply list-disc ml-6 mb-4; }
+        .markdown-body ol { @apply list-decimal ml-6 mb-4; }
+        .markdown-body li { @apply mb-1; }
+        .markdown-body blockquote { @apply border-l-4 border-gray-300 pl-4 italic my-4; }
+        .markdown-body code { @apply bg-gray-100 dark:bg-gray-700 px-1 rounded font-mono text-sm; }
+        .markdown-body pre { @apply bg-gray-100 dark:bg-gray-700 p-4 rounded-lg overflow-x-auto my-4 font-mono text-sm; }
+        .markdown-body table { @apply w-full border-collapse mb-4; }
+        .markdown-body th, .markdown-body td { @apply border border-gray-300 dark:border-gray-600 p-2 text-left; }
+        .markdown-body th { @apply bg-gray-50 dark:bg-gray-800; }
+        .markdown-body hr { @apply my-8 border-t border-gray-300 dark:border-gray-600; }
+        
+        /* KaTeX Overrides */
+        .katex-display { @apply my-4 overflow-x-auto overflow-y-hidden py-2; }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.40.0",
+    "react-markdown": "https://esm.sh/react-markdown@9.0.1"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
